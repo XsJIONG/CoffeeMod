@@ -95,18 +95,13 @@ public class Block extends Modable {
 
 	//自定义钩子
 	public void onClick(int x, int y, int z, int id, int idt, int side, int bidt) {}
-
 	public void onCharge(int x, int y, int z, int indensity, int bidt) {}
-
 	public void onDestory(int x, int y, int z, int side) {}
-
 	public void onContinueDestroy(int x, int y, int z, int side, double progress) {}
-
 	public void onStartDestroy(int x, int y, int z, int side) {}
-
 	public void onPlace(int x, int y, int z, int special, int bid, int bidt, int side) {}
 
-//固定函数
+	//固定函数
 	public static final void defineBlock(Object id, String name, Object texture, Object extend, boolean alpha, Object model) {call(C, "defineBlock", id , name, texture, toInt(extend), alpha, toInt(model));}
 	public static final void defineLiquidBlock(Object id, String name, Object czname, Object jc) {call(C, "defineLiquidBlock", toInt(id), name, czname, jc);}
 	public static final Integer[] getAllBlockIds() {return (Integer[]) call(C, "getAllBlockIds");}
