@@ -21,4 +21,10 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 .git
-core/build
+Core/build
+Archive_Standard/build
+Archive_Duowan/build
+CoffeeMod合并
+Archive_Duowan/classes.dex
+Archive_Standard/classes.dex
+Core/classes.dex

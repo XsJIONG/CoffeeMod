@@ -12,7 +12,7 @@
 它提供了一系列的方法与函数，使得你能够像在Js中一样编写ModPE（不过这会比Js更快）  
 让我们来看看下面这段示例代码
 
-```
+````java
 @Override
 public void procCmd(String cmd) { //当输入命令时调用
 	String[] c=cmd.split(' ');
@@ -24,7 +24,7 @@ public void procCmd(String cmd) { //当输入命令时调用
 	} catch (Exception e) {return;}
 	explode(Player.getX(), Player.getY(), Player.getZ(), e);
 }
-```
+````
 
 上面的代码模拟了爆炸命令的功能，当玩家在消息框中输入"/explode 5"时，就会在玩家坐标发生一次强度为5的爆炸
 
