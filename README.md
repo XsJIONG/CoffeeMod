@@ -1,3 +1,4 @@
+![CoffeeMod](https://github.com/XsJIONG/CoffeeMod/raw/master/cofmod.png)
 # CoffeeMod
 ![Version](https://img.shields.io/badge/Version-Reborn-2196F3.svg)
 ![Version Name](https://img.shields.io/badge/Version%20Name-V1.0.0-009688.svg)
