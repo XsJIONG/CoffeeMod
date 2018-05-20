@@ -1,20 +1,20 @@
 # CoffeeMod
-![版本](https://img.shields.io/badge/%E7%89%88%E6%9C%AC-Reborn-2196F3.svg)
-![版本名](https://img.shields.io/badge/%E7%89%88%E6%9C%AC%E5%90%8D-V1.0.0-009688.svg)
-![版本号](https://img.shields.io/badge/%E7%89%88%E6%9C%AC%E5%8F%B7-1-009688.svg)  
-![语言](https://img.shields.io/badge/%E8%AF%AD%E8%A8%80-Java-red.svg)
-![作者](https://img.shields.io/badge/%E4%BD%9C%E8%80%85-Xs.JIONG-brightgreen.svg)
-![许可证](https://img.shields.io/badge/%E8%AE%B8%E5%8F%AF%E8%AF%81-GPL--3.0-lightgray.svg)  
-[English Version](https://lnfnunes.github.io/404-PageNotFound/)
+![Version](https://img.shields.io/badge/Version-Reborn-2196F3.svg)
+![Version Name](https://img.shields.io/badge/Version%20Name-V1.0.0-009688.svg)
+![Version Code](https://img.shields.io/badge/Version%20Code-1-009688.svg)  
+![Language](https://img.shields.io/badge/Language-Java-red.svg)
+![Author](https://img.shields.io/badge/Author-Xs.JIONG-brightgreen.svg)
+![Lisence](https://img.shields.io/badge/Lisence-GPL--3.0-lightgrey.svg)  
+[中文版](https://github.com/XsJIONG/CoffeeMod/blob/master/README-zh.md)
 
-## 这是什么？
- **CoffeeMod**是一个能使你使用Java来编写ModPE的引擎  
-它提供了一系列的方法与函数，使得你能够像在Js中一样编写ModPE（不过这会比Js更快）  
-让我们来看看下面这段示例代码
+## What's this?
+ **CoffeeMod** is a ModPE engine which allows you to make ModPE with Java  
+It provides a series of methods, so you can make ModPE in a similar way to Js (But it's faster than Js)  
+Check out the sample code:
 
 ````java
 @Override
-public void procCmd(String cmd) { //当输入命令时调用
+public void procCmd(String cmd) { //Be called when player execute command
 	String[] c=cmd.split(' ');
 	if (c.length!=2) return;
 	if (!c[0].equals("explode")) return;
@@ -26,17 +26,17 @@ public void procCmd(String cmd) { //当输入命令时调用
 }
 ````
 
-上面的代码模拟了爆炸命令的功能，当玩家在消息框中输入"/explode 5"时，就会在玩家坐标发生一次强度为5的爆炸
+Previous code provides an explode command. For example, when player execute command "/explode 5", it will explode at player's position
 
-## 为什么我要选择CoffeeMod？
+## Why do I choose CoffeeMod?
 
-- 快速，高效，速度远大于Js
-- 针对BlockLauncher，多玩启动器都有优化
-- 提供丰富的API（Weapon,Food等）
-- 在编辑阶段提供了Js所没有的自动补全功能
-- 精简，打包modpkg只有不到100Kb  
+- Fast, CoffeeMod is quicker than Js
+- CoffeeMod has pertinent optimizition for BlockLauncher & Duowan
+- CoffeeMod provides several API, such as Weapon, Food and so on
+- You can enjoy auto-completion when using Java
+- The modpkg of CoffeeMod is only about 100KB  
 ......
 
-## 如何使用CoffeeMod？
-目前我还没有设计出合适的App来建立CoffeeMod项目...实在抱歉！  
-这可能会花费几个月时间...
+## How to use it?
+I'm sorry to tell you that I didn't make a proper App for making CoffeeMod...  
+But I promise I'll make it soon!
