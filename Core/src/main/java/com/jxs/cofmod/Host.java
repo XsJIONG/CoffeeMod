@@ -8,7 +8,7 @@ public class Host extends Modable {
 	public static final double getPlayerY() {return 0;}
 	public static final double getPlayerZ() {return 0;}
 	public static final long getPlayerEnt() {return 0;}
-	public static final Object getLevel() {return null;}
+	public static final NativePointer getLevel() {return null;}
 	public static final void setPosition(Object ent, double x, double y, double z) {}
 	public static final void setVelX(Object ent, double s) {}
 	public static final void setVelY(Object ent, double s) {}

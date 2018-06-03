@@ -1,9 +1,10 @@
 package com.jxs.cofmod;
 
+import com.jxs.cofmod.control.*;
 import com.mcbox.pesdkb.mcpelauncher.api.modpe.*;
 import java.util.*;
 
-public class Renderer {
+public class Renderer extends Modable {
 	public static Map<Integer, NativeRenderer> renderersById = new HashMap<>();
 	public static Map<String, NativeRenderer> renderersByName = new HashMap<>();
 

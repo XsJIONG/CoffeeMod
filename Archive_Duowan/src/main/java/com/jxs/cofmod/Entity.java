@@ -1,10 +1,11 @@
 package com.jxs.cofmod;
 
+import com.jxs.cofmod.control.*;
 import com.mcbox.pesdk.launcher.*;
 import com.mcbox.pesdkb.mcpelauncher.*;
 import com.mcbox.pesdkb.mcpelauncher.api.modpe.*;
 
-public class Entity {
+public class Entity extends Modable {
 	public static void setVelX(Object ent, double amount) {
 		ScriptManager.nativeSetVel(ScriptManager.getEntityId(ent), (float) amount, 0);
 	}

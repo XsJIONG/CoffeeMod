@@ -2,14 +2,14 @@ package com.jxs.cofmod;
 
 import android.content.*;
 import android.os.*;
-import android.util.*;
+import com.jxs.cofmod.control.*;
 import com.mcbox.pesdk.launcher.impl.*;
 import com.mcbox.pesdk.mcfloat.model.*;
 import com.mcbox.pesdkb.mcpelauncher.*;
 import com.mojang.minecraftpe.*;
 import java.io.*;
 
-public class ModPE {
+public class ModPE extends Modable {
 	public static void setTerrain(String url) {
 		overrideTexture("images/terrain-atlas.tga", url);
 	}

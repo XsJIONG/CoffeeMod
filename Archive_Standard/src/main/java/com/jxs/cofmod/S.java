@@ -33,7 +33,8 @@ public class S extends Modable {
 	public static final Object call(int index, String name, Object...args) {
 		try {
 			Class<?> sc=Class.forName("org.mozilla.javascript.Scriptable");
-			String f=CS[index] + '.' + name;
+			String f=null;
+			if (index == -1) f = name; else f = CS[index] + '.' + name;
 			if (Scope == null) Scope = eval("Scope");
 			Object func=eval(f);
 			if (cx == null) cx = eval("org.mozilla.javascript.Context.getCurrentContext()");

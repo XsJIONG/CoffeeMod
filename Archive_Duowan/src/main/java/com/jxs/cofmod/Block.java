@@ -1,13 +1,13 @@
 package com.jxs.cofmod;
 
-import android.util.*;
+import com.jxs.cofmod.control.*;
 import com.mcbox.pesdk.launcher.impl.*;
 import com.mcbox.pesdk.mcfloat.model.*;
 import com.mcbox.pesdkb.mcpelauncher.*;
 import org.json.*;
 import org.mozilla.javascript.*;
 
-public class Block {
+public class Block extends Modable {
 	private static final int BATTERY_USAGE_UNRESTRICTED = 256;
 
 	public static void defineBlock(int blockId, String name, Object textures, Object materialSourceIdSrc, Object opaqueSrc, Object renderTypeSrc) {

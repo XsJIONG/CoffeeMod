@@ -1,12 +1,13 @@
 package com.jxs.cofmod;
 
+import com.jxs.cofmod.control.*;
 import com.mcbox.pesdk.launcher.impl.*;
 import com.mcbox.pesdk.mcfloat.model.*;
 import com.mcbox.pesdkb.mcpelauncher.*;
 import com.mcbox.pesdkb.mcpelauncher.api.modpe.*;
 import java.util.*;
 
-public class Item {
+public class Item extends Modable {
 	private static List<Object[]> activeRecipes = new ArrayList<>();
 	public static Map<Integer, Integer> itemIdToRendererId = new HashMap<>();
 	public static Map<Integer, Integer> rendererToItemId = new HashMap<>();

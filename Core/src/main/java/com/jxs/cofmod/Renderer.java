@@ -5,28 +5,30 @@ import com.jxs.cofmod.control.*;
 public class Renderer {
 	public static final int C=6;
 	
-	public void setBody(Part body) {}
-	public Part getBody() {return null;}
-	public void setHead(Part head) {}
-	public Part getHead() {return null;}
-	public void setLeftArm(Part leftArm) {}
-	public Part getLeftArm() {return null;}
-	public void setLeftLeg(Part leftLeg) {}
-	public Part getLeftLeg() {return null;}
-	public void setRightArm(Part rightArm) {}
-	public Part getRightArm() {return null;}
-	public void setRightLeg(Part rightLeg) {}
-	public Part getRightLeg() {return null;}
-	public Model getModel() {return null;}
-	public static final Renderer createHumanoidRenderer() {return null;}
-	public static final Renderer get(String i) {return null;}
-	public static final Renderer getById(int i) {return null;}
-	public static final Renderer getByName(String n) {return null;}
+	public static final NativeRenderer createHumanoidRenderer() {return null;}
+	public static final NativeRenderer get(String i) {return null;}
+	public static final NativeRenderer getById(int i) {return null;}
+	public static final NativeRenderer getByName(String n) {return null;}
 	public static final void register(String name, Renderer renderer) {}
-	public static class Model {
-		public Part getPart(String str) {return null;}
+	public static class NativeRenderer {
+		public void setBody(NativeModelPart body) {}
+		public NativeModelPart getBody() {return null;}
+		public void setHead(NativeModelPart head) {}
+		public NativeModelPart getHead() {return null;}
+		public void setLeftArm(NativeModelPart leftArm) {}
+		public NativeModelPart getLeftArm() {return null;}
+		public void setLeftLeg(NativeModelPart leftLeg) {}
+		public NativeModelPart getLeftLeg() {return null;}
+		public void setRightArm(NativeModelPart rightArm) {}
+		public NativeModelPart getRightArm() {return null;}
+		public void setRightLeg(NativeModelPart rightLeg) {}
+		public NativeModelPart getRightLeg() {return null;}
+		public NativeModel getModel() {return null;}
 	}
-	public static class Part {
+	public static class NativeModel {
+		public NativeModelPart getPart(String str) {return null;}
+	}
+	public static class NativeModelPart {
 		public void clear() {}
 		public void setTextureOffset(int x, int y) {}
 		public void setTextureOffset(int x, int y, boolean transparent) {}

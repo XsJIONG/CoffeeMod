@@ -3,7 +3,7 @@ package com.jxs.cofmod;
 import com.jxs.cofmod.control.*;
 import com.mcbox.pesdkb.mcpelauncher.*;
 
-public class Player {
+public class Player extends Modable {
 	private static long playerEnt = 0;
 	
 	public static double getX() {

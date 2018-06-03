@@ -4,7 +4,7 @@ import com.jxs.cofmod.control.*;
 import com.mcbox.pesdkb.mcpelauncher.*;
 import com.mcbox.pesdkb.mcpelauncher.api.modpe.*;
 
-public class Level {
+public class Level extends Modable {
 	public static void setNightMode(boolean isNight) {
 		ScriptManager.nativeSetNightMode(isNight);
 	}

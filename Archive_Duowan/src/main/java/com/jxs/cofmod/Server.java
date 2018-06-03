@@ -1,8 +1,9 @@
 package com.jxs.cofmod;
 
+import com.jxs.cofmod.control.*;
 import com.mcbox.pesdkb.mcpelauncher.*;
 
-public class Server {
+public class Server extends Modable {
 	public static void joinServer(String serverAddress, int port) {
 		throw new RuntimeException("Unsupported");
 	}
