@@ -97,14 +97,15 @@ public class Modable implements Const {
 			Object MSS=ScriptState.getConstructors()[0].newInstance(null, Proxy.newProxyInstance(ctx.getClassLoader(), new Class<?>[]{Scriptable}, new InvocationHandler() {
 																			@Override
 																			public Object invoke(Object obj, Method method, Object[] args) throws Throwable {
-																				if (CoffeeMod.HOOK_FUNCTIONS.contains(args[0])) return HookFunctions.get(args[0]);
+																				if (CoffeeMod.HOOK_FUNCTIONS.contains(args[0]))
+																					return HookFunctions.get(args[0]);
 																				Logs.println("未定义的钩子函数：" + args[0]);
 																				return null;
 																			}
 																		}), "CoffeeMod_" + mod.name);
 			scripts.add(MSS);
-
 			Logs.println("已注入多玩ScriptTemplate");
+			mod.mod.NeedHook = false;
 		} catch (Throwable t) {
 			Logs.print("注入多玩ScriptTemplate时出现错误：");
 			Logs.println(ets(t));

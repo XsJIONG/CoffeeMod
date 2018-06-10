@@ -9,6 +9,7 @@ public class CoffeeMod extends Modable implements Const {
 
 	private static HashMap<Integer,Block> Blocks=new HashMap<>();
 	private static HashMap<Integer,Item> Items=new HashMap<>();
+	public boolean NeedHook=true;
 
 	@Override
 	public void onCreate() {
@@ -83,7 +84,7 @@ public class CoffeeMod extends Modable implements Const {
 
 	//钩子函数
 	public void attackHook(long attacker, long victim) {
-		
+
 	}
 
 	public void chatHook(String chat) {
@@ -105,7 +106,7 @@ public class CoffeeMod extends Modable implements Const {
 	}
 
 	public void eatHook(int add, int now) {
-		
+
 	}
 
 	public void entityAddedHook(long entity) {
@@ -113,6 +114,9 @@ public class CoffeeMod extends Modable implements Const {
 	}
 
 	public void entityHurtHook(long hurter, long victim) {
+		
+	}
+	public void entityHurtHook(long hurter, long victim, int hearts) {
 
 	}
 
@@ -120,7 +124,7 @@ public class CoffeeMod extends Modable implements Const {
 
 	}
 
-	public void explodeHook(long entity, double x, double y, double z, int power, boolean fire) {
+	public void explodeHook(long entity, double x, double y, double z, float power, boolean fire) {
 
 	}
 
@@ -174,7 +178,7 @@ public class CoffeeMod extends Modable implements Const {
 
 	}
 
-	public void useItem(int x, int y, int z, int id, int idt, int side, int bid, int bidt) {
+	public void useItem(int x, int y, int z, int id, int bid, int side, int idt, int bidt) {
 		Block b=getBlockById(bid);
 		if (b != null) b.onClick(x, y, x, id, idt, side, bidt);
 		b = getBlockById(id);

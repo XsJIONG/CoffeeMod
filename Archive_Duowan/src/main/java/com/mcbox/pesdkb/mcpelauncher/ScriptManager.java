@@ -132,7 +132,6 @@ public class ScriptManager {
 	public static native void nativeEntitySetSize(long p1, float p2, float p3);
 	public static native void nativeEntitySetTarget(long p1, long p2);
 	public static native void nativeExplode(float p1, float p2, float p3, float p4, boolean p5);
-	public static native void nativeExplode(float p1, float p2, float p3, float p4, boolean p5, boolean p6, float p7);
 	public static native void nativeExtinguishFire(int p1, int p2, int p3, int p4);
 	public static native void nativeForceCrash();
 	public static native void nativeGetAllEntities();

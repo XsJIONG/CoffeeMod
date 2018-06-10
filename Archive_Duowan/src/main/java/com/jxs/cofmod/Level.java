@@ -13,8 +13,8 @@ public class Level extends Modable {
 		return ScriptManager.nativeGetTileWrap(x, y, z);
 	}
 
-	public static void explode(double x, double y, double z, double radius, boolean onfire, boolean smoke, double somethingelse) {
-		ScriptManager.nativeExplode((float) x, (float) y, (float) z, (float) radius, onfire, smoke, (float) somethingelse);
+	public static void explode(double x, double y, double z, double radius, boolean onfire) {
+		ScriptManager.nativeExplode((float) x, (float) y, (float) z, (float) radius, onfire);
 	}
 
 	public static void setTile(int x, int y, int z, int id, int damage) {

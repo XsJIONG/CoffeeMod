@@ -4,7 +4,7 @@ import com.jxs.cofmod.control.*;
 import com.mcbox.pesdk.launcher.impl.*;
 import com.mcbox.pesdk.mcfloat.model.*;
 import com.mcbox.pesdkb.mcpelauncher.*;
-import org.json.*;
+import java.util.*;
 import org.mozilla.javascript.*;
 
 public class Block extends Modable {
@@ -14,42 +14,51 @@ public class Block extends Modable {
 		defineBlockImpl(blockId, name, textures, materialSourceIdSrc, opaqueSrc, renderTypeSrc, 0, true);
 	}
 
-	public static int defineLiquidBlock(int blockId, String name, Object textures, Object materialSourceIdSrc) {
-		defineBlockImpl(blockId, name, textures, materialSourceIdSrc, Integer.valueOf(8), Integer.valueOf(8), 1, true);
-		defineBlockImpl(blockId + 1, "Still " + name, textures, materialSourceIdSrc, Integer.valueOf(8), Integer.valueOf(8), 2, true);
+	public static int defineLiquidBlock(int blockId, String name, Object textures, int materialSourceIdSrc) {
+		defineBlockImpl(blockId, name, textures, materialSourceIdSrc, true, Integer.valueOf(8), 1, true);
+		defineBlockImpl(blockId + 1, "Still " + name, textures, materialSourceIdSrc, true, Integer.valueOf(8), 2, true);
 		return blockId + 1;
 	}
 
-	public static void defineBlockSpec(int blockId, String name, Object textures, Object materialSourceIdSrc, Object opaqueSrc, Object renderTypeSrc) {
+	public static void defineBlockSpec(int blockId, String name, Object textures, Object materialSourceIdSrc, boolean opaqueSrc, int renderTypeSrc) {
 		defineBlockImpl(blockId, name, textures, materialSourceIdSrc, opaqueSrc, renderTypeSrc, 0, false);
 	}
-
-	private static void defineBlockImpl(int blockId, String name, Object textures, Object materialSourceIdSrc, Object opaqueSrc, Object renderTypeSrc, int customBlockType, boolean showInMcFloat) {
+	private static ScriptManager.TextureRequests expandTexturesArray(Object textures) {
+		int[] ids=new int[96];
+		String[] ns=new String[96];
+		ScriptManager.TextureRequests r=new ScriptManager.TextureRequests();
+		r.names = ns; r.coords = ids;
+		if (textures instanceof String) Arrays.fill(ns, (String) textures); else {
+			Object[] objs=(Object[]) textures;
+			int w=objs.length % 6 == 0 ?6: 1;
+			if ((objs.length == 1 || objs.length == 2) && (objs[0] instanceof String)) {
+				Arrays.fill(ns, (String) objs[0]);
+				if (objs.length == 2) Arrays.fill(ids, ((Number) objs[1]).intValue());
+			} else {
+				Object[] obj;
+				for (int i=0;i < ids.length;i++) {
+					if (i < objs.length) obj = (Object[]) objs[i]; else obj = (Object[]) objs[i % w];
+					if (obj.length > 1) ids[i] = ((Number) obj[1]).intValue();
+					ns[i] = (String) obj[0];
+				}
+			}
+		}
+		return r;
+	}
+	private static void defineBlockImpl(int blockId, String name, Object textures, int materialSourceIdSrc, boolean opaque, int renderTypeSrc, int customBlockType, boolean showInMcFloat) {
 		if (blockId < 0 || blockId >= ScriptManager.ITEM_ID_COUNT)
 			throw new IllegalArgumentException("方块ID必须大于等于0并且小于" + ScriptManager.ITEM_ID_COUNT);
 		int materialSourceId = 17;
-		boolean opaque = true;
 		int renderType = 0;
-		if (materialSourceIdSrc != null && (materialSourceIdSrc instanceof Number))
-			materialSourceId = ((Number) materialSourceIdSrc).intValue();
-		if (opaqueSrc != null && (opaqueSrc instanceof Boolean))
-			opaque = ((Boolean) opaqueSrc).booleanValue();
-		if (renderTypeSrc != null && (renderTypeSrc instanceof Number))
-			renderType = ((Number) renderTypeSrc).intValue();
-		ScriptManager.TextureRequests finalTextures = ScriptManager.mapTextureNames(ScriptManager.expandTexturesArray(textures));
+		ScriptManager.TextureRequests finalTextures = ScriptManager.mapTextureNames(expandTexturesArray(textures));
 		ScriptManager.verifyBlockTextures(finalTextures);
-		try {
-			ScriptManager.blocksJson.setBlockTextures(name, blockId, finalTextures.names, finalTextures.coords);
-			ScriptManager.nativeDefineBlock(blockId, name, finalTextures.names, finalTextures.coords, materialSourceId, opaque, renderType, customBlockType);
-			if (showInMcFloat) {
-				String iconName = null;
-				if (finalTextures.names.length > 0) {
-					iconName = finalTextures.names[0];
-				}
-				DtPluginImpl.getInstance().addPluginList(new PluginItem(blockId, iconName, name, 0, null, 1));
-			}
-		} catch (JSONException je) {
-			throw new RuntimeException(je);
+		try {ScriptManager.blocksJson.setBlockTextures(name, blockId, finalTextures.names, finalTextures.coords);} catch (Throwable t) {}
+		ScriptManager.nativeDefineBlock(blockId, name, finalTextures.names, finalTextures.coords, materialSourceId, opaque, renderType, customBlockType);
+		if (showInMcFloat) {
+			String iconName = null;
+			if (finalTextures.names.length > 0)
+				iconName = finalTextures.names[0];
+			DtPluginImpl.getInstance().addPluginList(new PluginItem(blockId, iconName, name, 0, null, 1));
 		}
 	}
 
