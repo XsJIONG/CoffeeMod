@@ -75,7 +75,7 @@ public class CoffeeMod extends Modable implements Const {
 		String[] ss={
 			"attackHook","chatHook","continueDestroyBlock","destroyBlock","projectileHitEntityHook","eatHook","entityAddedHook",
 			"entityHurtHook","entityRemovedHook","explodeHook","serverMessageReceiveHook","chatReceiveHook","leaveGame","deathHook",
-			"playerAddExpHook","playerExpLevelChangeHook","redstoneUpdateHook","selectLevelHook","screenChangeHook","newLevel",
+			"playerAddExpHook","playerExpLevelChangeHook","redstoneUpdateHook","selectLevelHook","screenChangeHook","newLevel","procCmd",
 			"startDestroyBlock","modTick","useItem"
 		};
 		for (String one : ss) HOOK_FUNCTIONS.add(one);
@@ -114,7 +114,7 @@ public class CoffeeMod extends Modable implements Const {
 	}
 
 	public void entityHurtHook(long hurter, long victim) {
-		
+
 	}
 	public void entityHurtHook(long hurter, long victim, int hearts) {
 
@@ -172,6 +172,10 @@ public class CoffeeMod extends Modable implements Const {
 	public void startDestroyBlock(int x, int y, int z, int side) {
 		Block b=getBlockById(getTile(x, y, z));
 		if (b != null) b.onStartDestroy(x, y, z, side);
+	}
+
+	public void procCmd(String c) {
+
 	}
 
 	public void modTick() {

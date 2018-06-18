@@ -17,7 +17,7 @@ public class Host extends Modable {
 	public static final void setVelX(Object ent, double s) {ScriptManager.nativeSetVel(ScriptManager.getEntityId(ent), (float) s, 0);}
 	public static final void setVelY(Object ent, double s) {ScriptManager.nativeSetVel(ScriptManager.getEntityId(ent), (float) s, 1);}
 	public static final void setVelZ(Object ent, double s) {ScriptManager.nativeSetVel(ScriptManager.getEntityId(ent), (float) s, 2);}
-	public static final void explode(double x, double y, double z, double r, boolean fire) {ScriptManager.nativeExplode((float) x, (float) y, (float) z, (float) r, fire);}
+	public static final void explode(double x, double y, double z, double r, boolean fire) {try {ScriptManager.nativeExplode((float) x, (float) y, (float) z, (float) r, fire);} catch (Throwable t) {ScriptManager.nativeExplode((float) x, (float) y, (float) z, (float) r, fire, true, Float.POSITIVE_INFINITY);}}
 	public static final void addItemInventory(int id, int amount, int damage) {ScriptManager.nativeAddItemInventory(id, amount, damage);}
 	public static final void rideAnimal(Object rider, Object ani) {ScriptManager.nativeRideAnimal(ScriptManager.getEntityId(rider), ScriptManager.getEntityId(ani));}
 	public static final long spawnChicken(double x, double y, double z, String tex) {

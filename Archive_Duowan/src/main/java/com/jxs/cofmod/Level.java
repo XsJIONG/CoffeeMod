@@ -17,7 +17,7 @@ public class Level extends Modable {
 		ScriptManager.nativeExplode((float) x, (float) y, (float) z, (float) radius, onfire);
 	}
 
-	public static void setTile(int x, int y, int z, int id, int damage) {
+	public static void setTile(final int x, final int y, final int z, final int id, final int damage) {
 		if (id >= 256) {
 			ScriptManager.nativeSetTile(x, y, z, 0, 0);
 			ScriptManager.nativeSetTile(x, y, z, 245, damage);
